@@ -1,13 +1,15 @@
-#ifndef _SVM_STACK_H_
-#define _SVM_STACK_H_
-typedef struct {
-    int a_stack[1024];
+#ifndef __SVM_STACK_H__
+#define __SVM_STACK_H__
+#define STACK_MAX_SIZE 1024
+struct stack_tag {
+    int items[STACK_MAX_SIZE];
     int sp;
-} Stack;
+};
+typedef struct stack_tag Stack ;
 
-Stack *newStack();
-void push(*Stack stack, int val);
-int pop(*Stack stack);
-int peek(*Stack stack)
+Stack * newStack();
+void push(Stack *stack, int val);
+int pop(Stack *stack);
+int peek(Stack *stack);
 
-#ifndef
+#endif
