@@ -1,6 +1,6 @@
-SRC_FILES = svm.c
-CC_FLAGS = -Wall -std=c99
+SRC_FILES = svm.c lib/stack.c
+CC_FLAGS = -Wall -std=c11
 CC = gcc
 
 default:
-	${CC} ${SRC_FILES} ${CC_FLAGS} -o svm
+	${CC} ${SRC_FILES} ${CC_FLAGS}  -o svm
