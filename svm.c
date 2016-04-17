@@ -60,7 +60,6 @@ eval(Stack *stack, int instr)
         }
         case PSH: {
             push(stack, program[++ip]);
-            //stack[++sp] = program[++ip];
             break;
         }
         case ADD: {
