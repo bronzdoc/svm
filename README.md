@@ -1,7 +1,5 @@
 # SVM - Simple virtual machine
 
-Stack based virtual machine
-
 # Sample program
 ```
 PSH 5       ; pushes 5 to the stack
