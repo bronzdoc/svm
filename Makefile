@@ -1,4 +1,4 @@
-SRC_FILES = svm.c lib/stack.c
+SRC_FILES = main.c lib/stack.c
 CC_FLAGS = -Wall -std=c11
 CC = gcc
 
