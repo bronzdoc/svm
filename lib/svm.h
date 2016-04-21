@@ -1,7 +1,6 @@
 #ifndef _SVM_REGISTERS_H
 #define _SVM_REGISTERS_H
-int fetch();
-void eval(int);
+ #include "stack.h"
 
 // Instruction Set
 typedef enum { PSH, ADD, POP, SET, HLT } InstructionSet;
@@ -14,13 +13,14 @@ typedef struct vm_tag {
    int ip;              // vm instruction pointer
    InstructionSet is;   // vm instruction set
    Registers registers; // vm registers
+   int *process;        // vm process, a program that the vm understand
    int state;           // vm state, may be running may not
 } VM;
 
 void eval(VM *vm, int instr);
 void start(VM *vm, int program[]);
-void fetch(VM *vm, int program[]);
-VM *vm newVM();
+int fetch(VM *vm);
+VM * newVM();
 
 
 #endif

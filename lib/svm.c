@@ -1,8 +1,10 @@
+#include "stdlib.h"
+#include "stdio.h"
 #include "stack.h"
 #include "svm.h"
 
 // Create a new VM
-VM *vm
+VM *
 newVM()
 {
     Stack *stack = newStack();
@@ -24,7 +26,7 @@ eval(VM *vm, int instr)
             break;
         }
         case PSH: {
-            push(vm->stack, program[++ip]);
+            push(vm->stack, vm->process[++vm->ip]);
             break;
         }
         case ADD: {
@@ -42,11 +44,13 @@ eval(VM *vm, int instr)
 
 // Start VM
 void
-start(VM *vm, int programa[])
+start(VM *vm, int program[])
 {
+    vm->process = program;
     vm->state = 1;
+    vm->ip++;
     while(vm->state) {
-        int instr = fetch(vm, program);
+        int instr = fetch(vm);
         eval(vm, instr);
         vm->ip++;
     }
@@ -54,8 +58,8 @@ start(VM *vm, int programa[])
 
 // Fetch program next instruction
 int
-fetch(VM *vm, int program[])
+fetch(VM *vm)
 {
-    return program[vm->ip];
+    return vm->process[vm->ip];
 }
 
