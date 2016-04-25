@@ -26,9 +26,20 @@ int
 pop(Stack *stack)
 {
     if (stack->sp == -1) {
-        return stack->sp;
+        return 0;
     }
+
     return stack->items[stack->sp--];
+}
+
+int 
+isEmpty(Stack *stack)
+{
+    if (stack->sp == -1) {
+        return 1;
+    }
+
+    return 0;
 }
 
 int
@@ -37,6 +48,7 @@ peek(Stack *stack)
     if (stack->sp == -1) {
         return stack->sp;
     }
+
     return stack->items[stack->sp];
 }
 
