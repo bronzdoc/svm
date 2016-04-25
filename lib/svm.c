@@ -35,6 +35,11 @@ eval(VM *vm, int instr)
             push(vm->stack, a + b);
             break;
         }
+        case MOV: {
+            vm->registers[vm->process[vm->ip + 1]] = vm->registers[vm->process[vm->ip + 2]];
+            vm->ip = vm->ip + 2;
+            break;
+        }
         case POP: {
             printf("=> %d\n", pop(vm->stack));
             break;

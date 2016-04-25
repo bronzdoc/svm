@@ -6,6 +6,7 @@
 int program[] = {
     PSH, 5,
     PSH, 6,
+    MOV, A, B,
     ADD,
     POP,
     HLT
