@@ -6,9 +6,14 @@
 int program[] = {
     PSH, 5,
     PSH, 6,
-    MOV, A, B,
     ADD,
     POP,
+    SET, 90, A,
+    MOV, A, B,
+    PSH, 6,
+    LR , B,
+    POP,
+    ADD,
     HLT
 };
 
