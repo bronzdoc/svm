@@ -11,5 +11,6 @@ Stack * newStack();
 void push(Stack *stack, int val);
 int pop(Stack *stack);
 int peek(Stack *stack);
+int isEmpty(Stack *stack);
 
 #endif
