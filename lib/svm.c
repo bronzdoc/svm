@@ -36,12 +36,28 @@ eval(VM *vm, int instr)
             break;
         }
         case MOV: {
-            vm->registers[vm->process[vm->ip + 1]] = vm->registers[vm->process[vm->ip + 2]];
-            vm->ip = vm->ip + 2;
+            int from = vm->process[vm->ip + 1];
+            int to = vm->process[vm->ip + 2];
+            vm->registers[to] = vm->registers[from];
+            vm->ip += 2;
+            break;
+        }
+        case LR: {
+            int reg = vm->process[vm->ip + 1];
+            push(vm->stack, vm->registers[reg]);
+            break;
+        }
+        case SET: {
+            int val = vm->process[vm->ip + 1];
+            int reg = vm->process[vm->ip + 2];
+            vm->registers[reg] = val;
+            vm->ip += 2;
             break;
         }
         case POP: {
-            printf("=> %d\n", pop(vm->stack));
+            if (!isEmpty(vm->stack)) {
+                printf("=> %d\n", pop(vm->stack));
+            }
             break;
         }
     }

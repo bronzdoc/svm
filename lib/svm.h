@@ -4,12 +4,13 @@
 
 // Instruction Set
 typedef enum {
-    PSH,
-    ADD,
-    POP,
-    SET,
-    HLT,
-    MOV
+    PSH, // Push a value to the stack
+    ADD, // Add to numbers from the stack 
+    POP, // Pop value from the stack
+    SET, // Set value of register
+    HLT, // Stops the vm
+    MOV, // Moves value of register x to regster z
+    LR,  // Loads register to the stack
 } InstructionSet;
 
 // Registers
